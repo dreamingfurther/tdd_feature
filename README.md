@@ -1,4 +1,6 @@
-tdd_feature
+Test Driven Feature Development Practice Example
 ===========
 
-tdd_feature
+to run unit tests: rspec
+
+to run feature tests: cucumber
