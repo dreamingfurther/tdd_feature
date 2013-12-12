@@ -19,4 +19,26 @@ describe SurveysController do
       expect(assigns(:survey)).to be_a_new Survey
     end
   end
+
+  describe "#create" do
+    let(:survey_params) do
+      {survey: {
+        "name" => "David",
+        "age" => "25",
+        "climbing_grade" => "5.12",
+        "favorite_climber" => "Chris Sharma"
+        }
+      }
+    end
+
+    it "creates a new survey" do
+      expect(Survey).to receive(:create).with(survey_params[:survey])
+      post :create, survey_params
+    end
+
+    it "renders the index" do
+      post :create, survey_params
+      expect(response).to render_template :index
+    end
+  end
 end
